@@ -63,6 +63,7 @@ class TestLoginWebsiteContext(UnitTestCase):
 			"hide_footer": True,
 			"layout_style": "Minimal",
 			"card_spacing": "Compact",
+			"show_logo_on_loading_screen": True,
 		}
 
 		apply_login_context(context, settings)
@@ -71,6 +72,7 @@ class TestLoginWebsiteContext(UnitTestCase):
 		self.assertEqual(context["title"], "Leaforge 365")
 		self.assertEqual(context["logo"], settings["logo"])
 		self.assertEqual(context["favicon"], settings["favicon"])
+		self.assertEqual(context["splash_image"], settings["logo"])
 		self.assertEqual(context["base_template_path"], BRANDING_BASE_TEMPLATE)
 		self.assertIs(context["site_branding_config"], settings)
 		self.assertEqual(

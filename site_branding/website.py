@@ -30,6 +30,8 @@ def apply_login_context(context, settings):
 	if settings["logo"]:
 		context["logo"] = settings["logo"]
 	context["favicon"] = settings["favicon"] or settings["logo"]
+	if settings["show_logo_on_loading_screen"] and settings["logo"]:
+		context["splash_image"] = settings["logo"]
 
 
 def apply_desk_context(context, settings):
