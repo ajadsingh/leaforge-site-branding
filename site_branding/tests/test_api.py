@@ -11,7 +11,11 @@ from site_branding.api import (
 	_safe_phone,
 	_safe_website_url,
 )
-from site_branding.website import BRANDING_BASE_TEMPLATE, apply_login_context
+from site_branding.website import (
+	BRANDING_BASE_TEMPLATE,
+	apply_desk_context,
+	apply_login_context,
+)
 
 
 class TestLoginBrandingSanitizers(UnitTestCase):
@@ -79,3 +83,23 @@ class TestLoginWebsiteContext(UnitTestCase):
 				"branding-spacing-compact",
 			},
 		)
+
+	def test_branding_is_present_in_initial_desk_context(self):
+		context = {
+			"app_name": "ERPNext",
+			"favicon": "/assets/erpnext/images/erpnext-favicon.svg",
+			"splash_image": "/assets/erpnext/images/erpnext-logo.svg",
+		}
+		settings = {
+			"brand_name": "Leaforge 365",
+			"desk_brand_name": "Leaforge 365",
+			"logo": "/files/leaforge-logo.png",
+			"favicon": "/files/leaforge-favicon.png",
+			"show_logo_on_loading_screen": True,
+		}
+
+		apply_desk_context(context, settings)
+
+		self.assertEqual(context["app_name"], "Leaforge 365")
+		self.assertEqual(context["favicon"], settings["favicon"])
+		self.assertEqual(context["splash_image"], settings["logo"])

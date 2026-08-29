@@ -63,6 +63,9 @@ def get_public_branding():
 		"show_logo_in_desk_header": _enabled_setting(
 			settings, "show_logo_in_desk_header"
 		),
+		"show_logo_on_loading_screen": _enabled_setting(
+			settings, "show_logo_on_loading_screen"
+		),
 		"show_brand_in_page_title": _enabled_setting(
 			settings, "show_brand_in_page_title"
 		),

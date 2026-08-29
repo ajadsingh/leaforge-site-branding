@@ -28,6 +28,7 @@
   "enable_desk_branding",
   "desk_brand_name",
   "show_logo_in_desk_header",
+  "show_logo_on_loading_screen",
   "show_brand_in_page_title",
   "website_section",
   "enable_website_branding",
@@ -175,6 +176,13 @@
    "fieldname": "show_logo_in_desk_header",
    "fieldtype": "Check",
    "label": "Show Brand Logo in Desk Header"
+  },
+  {
+   "default": "1",
+   "description": "Use the Brand Logo while Desk loads after login.",
+   "fieldname": "show_logo_on_loading_screen",
+   "fieldtype": "Check",
+   "label": "Show Brand Logo on Loading Screen"
   },
   {
    "default": "1",
