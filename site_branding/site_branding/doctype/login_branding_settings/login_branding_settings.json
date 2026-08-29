@@ -1,0 +1,221 @@
+{
+ "doctype": "DocType",
+ "name": "Login Branding Settings",
+ "module": "Site Branding",
+ "issingle": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "enabled",
+  "brand_section",
+  "brand_name",
+  "brand_tagline",
+  "logo",
+  "favicon",
+  "company_details_section",
+  "website_url",
+  "support_email",
+  "support_phone",
+  "appearance_section",
+  "page_background",
+  "card_background",
+  "text_color",
+  "primary_color",
+  "layout_section",
+  "layout_style",
+  "card_spacing",
+  "hide_footer",
+  "desk_section",
+  "enable_desk_branding",
+  "desk_brand_name",
+  "show_logo_in_desk_header",
+  "show_brand_in_page_title",
+  "website_section",
+  "enable_website_branding",
+  "website_title",
+  "preview"
+ ],
+ "fields": [
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enable Login Branding"
+  },
+  {
+   "fieldname": "brand_section",
+   "fieldtype": "Section Break",
+   "label": "Brand"
+  },
+  {
+   "default": "Leaforge 365",
+   "fieldname": "brand_name",
+   "fieldtype": "Data",
+   "label": "Brand Name",
+   "reqd": 1
+  },
+  {
+   "default": "Business Central, Implemented Around Your Business",
+   "fieldname": "brand_tagline",
+   "fieldtype": "Data",
+   "label": "Brand Tagline"
+  },
+  {
+   "default": "/assets/site_branding/images/leaforge-logo.png",
+   "fieldname": "logo",
+   "fieldtype": "Attach Image",
+   "label": "Brand Logo"
+  },
+  {
+   "default": "/assets/site_branding/images/leaforge-favicon.png",
+   "description": "Optional square browser icon. When empty, Brand Logo is used.",
+   "fieldname": "favicon",
+   "fieldtype": "Attach Image",
+   "label": "Favicon"
+  },
+  {
+   "fieldname": "company_details_section",
+   "fieldtype": "Section Break",
+   "label": "Company Details"
+  },
+  {
+   "default": "https://www.leaforge365.com/",
+   "fieldname": "website_url",
+   "fieldtype": "Data",
+   "label": "Website URL",
+   "options": "URL"
+  },
+  {
+   "default": "Info@leaforge365.com",
+   "fieldname": "support_email",
+   "fieldtype": "Data",
+   "label": "Support Email",
+   "options": "Email"
+  },
+  {
+   "default": "+91 89558 61060",
+   "fieldname": "support_phone",
+   "fieldtype": "Data",
+   "label": "Support Phone",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "appearance_section",
+   "fieldtype": "Section Break",
+   "label": "Colors"
+  },
+  {
+   "default": "#F3F8F7",
+   "fieldname": "page_background",
+   "fieldtype": "Color",
+   "label": "Page Background"
+  },
+  {
+   "default": "#FFFFFF",
+   "fieldname": "card_background",
+   "fieldtype": "Color",
+   "label": "Card Background"
+  },
+  {
+   "default": "#0B2530",
+   "fieldname": "text_color",
+   "fieldtype": "Color",
+   "label": "Text Color"
+  },
+  {
+   "default": "#04414B",
+   "fieldname": "primary_color",
+   "fieldtype": "Color",
+   "label": "Button and Link Color"
+  },
+  {
+   "fieldname": "layout_section",
+   "fieldtype": "Section Break",
+   "label": "Layout"
+  },
+  {
+   "default": "Card",
+   "fieldname": "layout_style",
+   "fieldtype": "Select",
+   "label": "Style",
+   "options": "Card\nMinimal"
+  },
+  {
+   "default": "Comfortable",
+   "fieldname": "card_spacing",
+   "fieldtype": "Select",
+   "label": "Spacing",
+   "options": "Comfortable\nCompact"
+  },
+  {
+   "default": "0",
+   "fieldname": "hide_footer",
+   "fieldtype": "Check",
+   "label": "Hide Login Footer"
+  },
+  {
+   "fieldname": "desk_section",
+   "fieldtype": "Section Break",
+   "label": "Desk Branding"
+  },
+  {
+   "default": "1",
+   "fieldname": "enable_desk_branding",
+   "fieldtype": "Check",
+   "label": "Enable Desk Branding"
+  },
+  {
+   "default": "Leaforge 365",
+   "description": "Leave empty to use Brand Name.",
+   "fieldname": "desk_brand_name",
+   "fieldtype": "Data",
+   "label": "Desk Brand Name"
+  },
+  {
+   "default": "1",
+   "fieldname": "show_logo_in_desk_header",
+   "fieldtype": "Check",
+   "label": "Show Brand Logo in Desk Header"
+  },
+  {
+   "default": "1",
+   "fieldname": "show_brand_in_page_title",
+   "fieldtype": "Check",
+   "label": "Show Brand in Browser Title"
+  },
+  {
+   "fieldname": "website_section",
+   "fieldtype": "Section Break",
+   "label": "Website Branding"
+  },
+  {
+   "default": "1",
+   "fieldname": "enable_website_branding",
+   "fieldtype": "Check",
+   "label": "Enable Website Branding"
+  },
+  {
+   "default": "Leaforge Technologies",
+   "description": "Leave empty to use Brand Name.",
+   "fieldname": "website_title",
+   "fieldtype": "Data",
+   "label": "Website Title"
+  },
+  {
+   "fieldname": "preview",
+   "fieldtype": "HTML",
+   "label": "Live Preview"
+  }
+ ],
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

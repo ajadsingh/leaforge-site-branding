@@ -1,0 +1,105 @@
+body.site-branding-login {
+	--branding-bg: #f8fafc;
+	--branding-card: #ffffff;
+	--branding-text: #111827;
+	--branding-primary: #2563eb;
+	background: var(--branding-bg);
+	color: var(--branding-text);
+}
+
+body.site-branding-login .web-footer {
+	background: transparent;
+}
+
+body.site-branding-login.branding-hide-footer .web-footer {
+	display: none;
+}
+
+body.site-branding-login .page-card {
+	background: var(--branding-card);
+	border: 1px solid color-mix(in srgb, var(--branding-text) 10%, transparent);
+	border-radius: 16px;
+	box-shadow: 0 16px 44px rgb(15 23 42 / 8%);
+	padding: 32px;
+}
+
+body.site-branding-login.branding-spacing-compact .page-card {
+	padding: 22px;
+}
+
+body.site-branding-login.branding-layout-minimal .page-card {
+	background: transparent;
+	border-color: transparent;
+	box-shadow: none;
+}
+
+body.site-branding-login .page-card-head {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 14px;
+}
+
+body.site-branding-login .page-card-head .app-logo {
+	max-width: 176px;
+	max-height: 72px;
+	object-fit: contain;
+}
+
+body.site-branding-login .site-branding-name {
+	color: var(--branding-text);
+	font-size: 24px;
+	font-weight: 650;
+	letter-spacing: -0.025em;
+	line-height: 30px;
+}
+
+body.site-branding-login .site-branding-tagline {
+	max-width: 320px;
+	margin: -6px 0 2px;
+	color: color-mix(in srgb, var(--branding-text) 70%, transparent);
+	font-size: 13px;
+	line-height: 19px;
+	text-align: center;
+}
+
+body.site-branding-login .site-branding-support {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+	margin-top: 18px;
+	color: color-mix(in srgb, var(--branding-text) 45%, transparent);
+	font-size: 11px;
+}
+
+body.site-branding-login .site-branding-support a {
+	color: color-mix(in srgb, var(--branding-text) 70%, transparent);
+	text-decoration: none;
+}
+
+body.site-branding-login .site-branding-support a:hover {
+	color: var(--branding-primary);
+	text-decoration: underline;
+}
+
+body.site-branding-login .form-control {
+	background: var(--branding-card);
+	border-color: color-mix(in srgb, var(--branding-text) 16%, transparent);
+	color: var(--branding-text);
+}
+
+body.site-branding-login .form-control:focus {
+	border-color: var(--branding-primary);
+	box-shadow: 0 0 0 3px color-mix(in srgb, var(--branding-primary) 18%, transparent);
+}
+
+body.site-branding-login .btn-primary {
+	background: var(--branding-primary);
+	border-color: var(--branding-primary);
+}
+
+body.site-branding-login a {
+	color: var(--branding-primary);
+}

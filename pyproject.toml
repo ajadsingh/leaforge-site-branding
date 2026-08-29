@@ -3,7 +3,7 @@ name = "site_branding"
 authors = [
     { name = "Piyush", email = "piyush.silvassa@gmail.com"}
 ]
-description = "Configurable ERPNext login page branding"
+description = "Configurable Frappe and ERPNext interface branding"
 requires-python = ">=3.14"
 readme = "README.md"
 dynamic = ["version"]

@@ -1,0 +1,111 @@
+.branding-preview-dock {
+	position: fixed;
+	right: 24px;
+	bottom: 24px;
+	z-index: 1040;
+	width: min(360px, calc(100vw - 48px));
+	overflow: hidden;
+	background: #fff;
+	border: 1px solid #d8dfe8;
+	border-radius: 14px;
+	box-shadow: 0 18px 50px rgb(15 23 42 / 14%);
+}
+
+.branding-preview-toolbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 12px 16px;
+	color: #111827;
+	font-size: 14px;
+}
+
+.branding-preview-toolbar span {
+	color: #667085;
+}
+
+.branding-preview-page {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 300px;
+	padding: 28px;
+	background: var(--preview-page);
+}
+
+.branding-preview-card {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	width: 100%;
+	padding: 24px;
+	background: var(--preview-card);
+	border: 1px solid rgb(17 24 39 / 10%);
+	border-radius: 12px;
+	color: var(--preview-text);
+	box-shadow: 0 10px 28px rgb(15 23 42 / 8%);
+}
+
+.branding-preview-card.is-compact {
+	gap: 8px;
+	padding: 18px;
+}
+
+.branding-preview-card.is-minimal {
+	background: transparent;
+	border-color: transparent;
+	box-shadow: none;
+}
+
+.branding-preview-logo {
+	align-self: center;
+	max-width: 120px;
+	max-height: 48px;
+	object-fit: contain;
+}
+
+.branding-preview-name {
+	padding: 4px 0 8px;
+	font-size: 20px;
+	font-weight: 650;
+	line-height: 24px;
+	text-align: center;
+}
+
+.branding-preview-tagline {
+	margin-top: -8px;
+	color: color-mix(in srgb, var(--preview-text) 65%, transparent);
+	font-size: 11px;
+	line-height: 16px;
+	text-align: center;
+}
+
+.branding-preview-input,
+.branding-preview-button {
+	display: flex;
+	align-items: center;
+	min-height: 38px;
+	padding: 0 12px;
+	border-radius: 7px;
+	font-size: 14px;
+}
+
+.branding-preview-input {
+	background: var(--preview-card);
+	border: 1px solid rgb(17 24 39 / 15%);
+}
+
+.branding-preview-button {
+	justify-content: center;
+	background: var(--preview-primary);
+	color: #fff;
+	font-weight: 600;
+}
+
+@media (max-width: 767px) {
+	.branding-preview-dock {
+		position: static;
+		width: 100%;
+		margin-top: 16px;
+	}
+}

@@ -1,0 +1,24 @@
+body.site-branding-desk {
+	--primary: var(--site-brand-primary);
+	--primary-color: var(--site-brand-primary);
+}
+
+.site-branding-desk .sidebar-header .header-logo img[data-site-branding-logo] {
+	width: 24px;
+	height: 24px;
+	object-fit: contain;
+	border-radius: 5px;
+}
+
+.site-branding-desk .sidebar-header .header-subtitle {
+	color: var(--text-muted);
+	font-weight: 500;
+}
+
+.site-branding-desk .btn-primary,
+.site-branding-desk .btn-primary:active,
+.site-branding-desk .btn-primary:focus,
+.site-branding-desk .btn-primary:hover {
+	background-color: var(--site-brand-primary);
+	border-color: var(--site-brand-primary);
+}

@@ -1,9 +1,20 @@
 app_name = "site_branding"
 app_title = "Site Branding"
 app_publisher = "Piyush"
-app_description = "Configurable ERPNext login page branding"
+app_description = "Configurable Frappe and ERPNext interface branding"
 app_email = "piyush.silvassa@gmail.com"
 app_license = "mit"
+
+required_apps = ["frappe"]
+
+app_include_css = [
+	"/assets/site_branding/css/login_branding_settings.css?v=0.2.0",
+	"/assets/site_branding/css/desk_branding.css?v=0.2.0",
+]
+app_include_js = "/assets/site_branding/js/desk_branding.js?v=0.2.0"
+web_include_css = "/assets/site_branding/css/login_branding.css?v=0.2.0"
+web_include_js = "/assets/site_branding/js/login_branding.js?v=0.2.0"
+boot_session = "site_branding.boot.boot_session"
 
 # Apps
 # ------------------
@@ -255,4 +266,3 @@ app_license = "mit"
 # ------------
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
-
