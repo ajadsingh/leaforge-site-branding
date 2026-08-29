@@ -1,7 +1,17 @@
 (() => {
 	"use strict";
 
-	whenDocumentReady(loadBranding);
+	startBranding();
+
+	function startBranding() {
+		const embeddedSettings = window.site_branding_config;
+		if (embeddedSettings && document.body) {
+			applyBranding(embeddedSettings);
+			return;
+		}
+
+		whenDocumentReady(loadBranding);
+	}
 
 	function whenDocumentReady(callback) {
 		if (document.readyState === "loading") {
@@ -22,13 +32,17 @@
 			const { message: settings } = await response.json();
 			if (!settings) return;
 
-			if (window.location.pathname === "/login" && settings.enabled) {
-				applyLoginBranding(settings);
-			} else if (settings.website_enabled) {
-				applyWebsiteBranding(settings);
-			}
+			applyBranding(settings);
 		} catch (error) {
 			console.warn("Login branding could not be loaded.", error);
+		}
+	}
+
+	function applyBranding(settings) {
+		if (window.location.pathname === "/login" && settings.enabled) {
+			applyLoginBranding(settings);
+		} else if (settings.website_enabled) {
+			applyWebsiteBranding(settings);
 		}
 	}
 

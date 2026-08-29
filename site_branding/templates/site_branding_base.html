@@ -1,0 +1,18 @@
+{% extends "templates/base.html" %}
+
+{% block head %}
+{{ super() }}
+{% if site_branding_config %}
+<style>
+	body.site-branding-login {
+		--branding-bg: {{ site_branding_config.page_background }};
+		--branding-card: {{ site_branding_config.card_background }};
+		--branding-text: {{ site_branding_config.text_color }};
+		--branding-primary: {{ site_branding_config.primary_color }};
+	}
+</style>
+<script>
+	window.site_branding_config = {{ site_branding_config | tojson }};
+</script>
+{% endif %}
+{% endblock %}

@@ -11,6 +11,7 @@ from site_branding.api import (
 	_safe_phone,
 	_safe_website_url,
 )
+from site_branding.website import BRANDING_BASE_TEMPLATE, apply_login_context
 
 
 class TestLoginBrandingSanitizers(UnitTestCase):
@@ -46,3 +47,35 @@ class TestLoginBrandingSanitizers(UnitTestCase):
 
 	def test_explicit_toggle_value_is_respected(self):
 		self.assertFalse(_enabled_setting(SimpleNamespace(toggle=0), "toggle"))
+
+
+class TestLoginWebsiteContext(UnitTestCase):
+	def test_branding_is_present_in_initial_login_context(self):
+		context = {"body_class": "existing-class", "logo": "/default-logo.svg"}
+		settings = {
+			"brand_name": "Leaforge 365",
+			"logo": "/files/leaforge-logo.png",
+			"favicon": "/files/leaforge-favicon.png",
+			"hide_footer": True,
+			"layout_style": "Minimal",
+			"card_spacing": "Compact",
+		}
+
+		apply_login_context(context, settings)
+
+		self.assertEqual(context["app_name"], "Leaforge 365")
+		self.assertEqual(context["title"], "Leaforge 365")
+		self.assertEqual(context["logo"], settings["logo"])
+		self.assertEqual(context["favicon"], settings["favicon"])
+		self.assertEqual(context["base_template_path"], BRANDING_BASE_TEMPLATE)
+		self.assertIs(context["site_branding_config"], settings)
+		self.assertEqual(
+			set(context["body_class"].split()),
+			{
+				"existing-class",
+				"site-branding-login",
+				"branding-hide-footer",
+				"branding-layout-minimal",
+				"branding-spacing-compact",
+			},
+		)

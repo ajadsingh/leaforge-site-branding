@@ -13,8 +13,9 @@ app_include_css = [
 ]
 app_include_js = "/assets/site_branding/js/desk_branding.js?v=0.2.0"
 web_include_css = "/assets/site_branding/css/login_branding.css?v=0.2.0"
-web_include_js = "/assets/site_branding/js/login_branding.js?v=0.2.0"
+web_include_js = "/assets/site_branding/js/login_branding.js?v=0.2.1"
 boot_session = "site_branding.boot.boot_session"
+update_website_context = "site_branding.website.update_website_context"
 
 # Apps
 # ------------------
