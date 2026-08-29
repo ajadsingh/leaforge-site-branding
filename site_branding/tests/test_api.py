@@ -8,6 +8,7 @@ from site_branding.api import (
 	_public_file_url,
 	_safe_color,
 	_safe_email,
+	_safe_label,
 	_safe_phone,
 	_safe_website_url,
 )
@@ -48,6 +49,14 @@ class TestLoginBrandingSanitizers(UnitTestCase):
 
 	def test_new_toggle_defaults_to_enabled(self):
 		self.assertTrue(_enabled_setting(SimpleNamespace(), "new_toggle"))
+
+	def test_apps_page_labels_are_normalized_and_limited(self):
+		self.assertEqual(_safe_label("  My   Brand  ", "apps_page_brand_name"), "My Brand")
+		self.assertEqual(
+			_safe_label("x" * 80, "settings_tile_label"),
+			"x" * 60,
+		)
+		self.assertEqual(_safe_label("", "settings_tile_label"), "System Settings")
 
 	def test_explicit_toggle_value_is_respected(self):
 		self.assertFalse(_enabled_setting(SimpleNamespace(toggle=0), "toggle"))

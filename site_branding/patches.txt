@@ -7,3 +7,4 @@
 site_branding.patches.v0_1.enable_branding_surfaces
 site_branding.patches.v0_1.set_leaforge_branding_defaults
 site_branding.patches.v0_1.enable_loading_screen_logo
+site_branding.patches.v0_1.enable_apps_page_branding

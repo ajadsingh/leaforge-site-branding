@@ -10,6 +10,25 @@ body.site-branding-desk {
 	border-radius: 5px;
 }
 
+.site-branding-desk .navbar-home #brand-logo[data-site-branding-logo] {
+	width: 32px;
+	height: 32px;
+	object-fit: contain;
+	border-radius: 8px;
+}
+
+.site-branding-desk .desktop-icon[data-site-branding-tile="brand"] .icon-container {
+	background: #fff;
+	border: 1px solid var(--border-color);
+	border-radius: 16px;
+}
+
+.site-branding-desk .desktop-icon[data-site-branding-tile="brand"] .app-icon {
+	width: 42px;
+	height: 42px;
+	object-fit: contain;
+}
+
 .site-branding-desk .sidebar-header .header-subtitle {
 	color: var(--text-muted);
 	font-weight: 500;

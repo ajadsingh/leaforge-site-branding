@@ -9,9 +9,9 @@ required_apps = ["frappe"]
 
 app_include_css = [
 	"/assets/site_branding/css/login_branding_settings.css?v=0.2.0",
-	"/assets/site_branding/css/desk_branding.css?v=0.2.0",
+	"/assets/site_branding/css/desk_branding.css?v=0.3.1",
 ]
-app_include_js = "/assets/site_branding/js/desk_branding.js?v=0.2.0"
+app_include_js = "/assets/site_branding/js/desk_branding.js?v=0.3.1"
 web_include_css = "/assets/site_branding/css/login_branding.css?v=0.2.0"
 web_include_js = "/assets/site_branding/js/login_branding.js?v=0.2.1"
 boot_session = "site_branding.boot.boot_session"

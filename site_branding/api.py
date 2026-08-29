@@ -16,6 +16,8 @@ DEFAULTS = {
 	"primary_color": "#04414B",
 	"layout_style": "Card",
 	"card_spacing": "Comfortable",
+	"apps_page_brand_name": "Leaforge 365",
+	"settings_tile_label": "System Settings",
 }
 
 COLOR_PATTERN = re.compile(r"^#[0-9A-Fa-f]{6}$")
@@ -38,6 +40,16 @@ def get_public_branding():
 	settings = frappe.get_cached_doc("Login Branding Settings")
 	brand_name = settings.brand_name or DEFAULTS["brand_name"]
 	desk_brand_name = getattr(settings, "desk_brand_name", None) or brand_name
+	apps_page_brand_name_value = getattr(settings, "apps_page_brand_name", None)
+	apps_page_brand_name = (
+		_safe_label(apps_page_brand_name_value, "apps_page_brand_name")
+		if isinstance(apps_page_brand_name_value, str)
+		and apps_page_brand_name_value.strip()
+		else desk_brand_name
+	)
+	settings_tile_label = _safe_label(
+		getattr(settings, "settings_tile_label", None), "settings_tile_label"
+	)
 	website_title = getattr(settings, "website_title", None) or brand_name
 	return {
 		"enabled": bool(settings.enabled),
@@ -69,6 +81,14 @@ def get_public_branding():
 		"show_brand_in_page_title": _enabled_setting(
 			settings, "show_brand_in_page_title"
 		),
+		"apps_page_enabled": _enabled_setting(
+			settings, "enable_apps_page_branding"
+		),
+		"apps_page_brand_name": apps_page_brand_name,
+		"settings_tile_label": settings_tile_label,
+		"show_brand_logo_on_apps_page": _enabled_setting(
+			settings, "show_brand_logo_on_apps_page"
+		),
 		"website_enabled": _enabled_setting(settings, "enable_website_branding"),
 		"website_title": website_title,
 	}
@@ -85,6 +105,13 @@ def _safe_color(value, default_key):
 
 def _allowed_value(value, allowed, default_key):
 	return value if value in allowed else DEFAULTS[default_key]
+
+
+def _safe_label(value, default_key):
+	if not isinstance(value, str):
+		return DEFAULTS[default_key]
+	label = " ".join(value.split())
+	return label[:60] or DEFAULTS[default_key]
 
 
 def _public_file_url(value):

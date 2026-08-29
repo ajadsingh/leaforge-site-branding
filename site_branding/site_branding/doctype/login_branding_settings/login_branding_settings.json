@@ -30,6 +30,11 @@
   "show_logo_in_desk_header",
   "show_logo_on_loading_screen",
   "show_brand_in_page_title",
+  "apps_page_section",
+  "enable_apps_page_branding",
+  "apps_page_brand_name",
+  "settings_tile_label",
+  "show_brand_logo_on_apps_page",
   "website_section",
   "enable_website_branding",
   "website_title",
@@ -189,6 +194,39 @@
    "fieldname": "show_brand_in_page_title",
    "fieldtype": "Check",
    "label": "Show Brand in Browser Title"
+  },
+  {
+   "fieldname": "apps_page_section",
+   "fieldtype": "Section Break",
+   "label": "Apps Page Branding"
+  },
+  {
+   "default": "1",
+   "description": "Brand the Desk apps launcher without changing app routes or internal IDs.",
+   "fieldname": "enable_apps_page_branding",
+   "fieldtype": "Check",
+   "label": "Enable Apps Page Branding"
+  },
+  {
+   "default": "Leaforge 365",
+   "description": "Replaces the visible Framework tile label. Leave empty to use the default brand name.",
+   "fieldname": "apps_page_brand_name",
+   "fieldtype": "Data",
+   "label": "Apps Page Brand Name"
+  },
+  {
+   "default": "System Settings",
+   "description": "Replaces the visible ERPNext Settings tile label.",
+   "fieldname": "settings_tile_label",
+   "fieldtype": "Data",
+   "label": "Settings Tile Label"
+  },
+  {
+   "default": "1",
+   "description": "Uses the square Favicon in the top-left launcher and brand tile. Brand Logo is the fallback.",
+   "fieldname": "show_brand_logo_on_apps_page",
+   "fieldtype": "Check",
+   "label": "Show Brand Mark on Apps Page"
   },
   {
    "fieldname": "website_section",

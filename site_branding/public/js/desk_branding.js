@@ -57,8 +57,65 @@
 
 		setText(".sidebar-header .header-subtitle", brandName);
 		setHeaderLogo(settings.logo, brandName, settings.show_logo_in_desk_header);
+		applyAppsPageBranding(settings, brandName);
 		setFavicon(settings.favicon || settings.logo);
 		if (settings.show_brand_in_page_title) setPageTitle(brandName);
+	}
+
+	function applyAppsPageBranding(settings, brandName) {
+		if (!settings.apps_page_enabled) return;
+
+		const appsPageName = settings.apps_page_brand_name || brandName;
+		const settingsLabel = settings.settings_tile_label || "System Settings";
+		if (settings.show_brand_logo_on_apps_page) {
+			setAppsLauncherLogo(settings.favicon || settings.logo, appsPageName);
+			brandDesktopTile("Framework", appsPageName, settings.favicon || settings.logo);
+		} else {
+			brandDesktopTile("Framework", appsPageName);
+		}
+		renameDesktopTile("ERPNext Settings", settingsLabel);
+	}
+
+	function setAppsLauncherLogo(logoUrl, brandName) {
+		if (!logoUrl) return;
+		const image = document.querySelector(".navbar-home #brand-logo");
+		if (!image) return;
+
+		if (image.getAttribute("src") !== logoUrl) image.src = logoUrl;
+		if (image.alt !== brandName) image.alt = brandName;
+		image.dataset.siteBrandingLogo = "1";
+	}
+
+	function brandDesktopTile(originalLabel, brandName, logoUrl) {
+		const tile = findDesktopTile(originalLabel);
+		if (!tile) return;
+
+		tile.dataset.siteBrandingTile = "brand";
+		setDesktopTileLabel(tile, brandName);
+		if (!logoUrl) return;
+
+		const image = tile.querySelector(".app-icon");
+		if (!image) return;
+		if (image.getAttribute("src") !== logoUrl) image.src = logoUrl;
+		if (image.alt !== brandName) image.alt = brandName;
+	}
+
+	function renameDesktopTile(originalLabel, label) {
+		const tile = findDesktopTile(originalLabel);
+		if (!tile) return;
+		tile.dataset.siteBrandingTile = "settings";
+		setDesktopTileLabel(tile, label);
+	}
+
+	function findDesktopTile(originalLabel) {
+		return document.querySelector(`.desktop-icon[data-id="${originalLabel}"]`);
+	}
+
+	function setDesktopTileLabel(tile, label) {
+		const title = tile.querySelector(".icon-title");
+		if (!title) return;
+		if (title.textContent.trim() !== label) title.textContent = label;
+		if (title.dataset.originalTitle !== label) title.dataset.originalTitle = label;
 	}
 
 	function setText(selector, value) {
@@ -119,9 +176,9 @@
 			});
 		};
 
-		const sidebar = document.querySelector(".body-sidebar");
-		if (sidebar) {
-			new MutationObserver(scheduleApply).observe(sidebar, {
+		const desk = document.querySelector("#body") || document.body;
+		if (desk) {
+			new MutationObserver(scheduleApply).observe(desk, {
 				childList: true,
 				subtree: true,
 			});
